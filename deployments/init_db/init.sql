@@ -45,26 +45,26 @@ $$ language plpgsql;
 create trigger process_user_segment_audit after insert or delete on user_segment for each row execute procedure process_user_segment_audit();
 
 
-insert into segment(slug, description)
-values ('AVITO_VOICE_MESSAGES', 'Голосовые сообщения в чатах'),
-       ('AVITO_PERFORMANCE_VAS', 'Новые услуги продвижения'),
-       ('AVITO_DISCOUNT_30', 'Скидка 30% на услуги продвижения'),
-       ('AVITO_DISCOUNT_50', 'Скидка 50% на услуги продвижения');
-
-do $$begin
-    for i in 1..50 loop
-            insert into client(id) values (i);
-            if i&1 > 0 then
-                insert into user_segment(user_id, segment_id) values (i, 1);
-            end if;
-            if i&2 > 0 then
-                insert into user_segment(user_id, segment_id) values (i, 2);
-            end if;
-            if i&4 > 0 then
-                insert into user_segment(user_id, segment_id) values (i, 3);
-            end if;
-            if i&8 > 0 then
-                insert into user_segment(user_id, segment_id) values (i, 4);
-            end if;
-end loop;
-end;$$
+-- insert into segment(slug, description)
+-- values ('AVITO_VOICE_MESSAGES', 'Голосовые сообщения в чатах'),
+--        ('AVITO_PERFORMANCE_VAS', 'Новые услуги продвижения'),
+--        ('AVITO_DISCOUNT_30', 'Скидка 30% на услуги продвижения'),
+--        ('AVITO_DISCOUNT_50', 'Скидка 50% на услуги продвижения');
+--
+-- do $$begin
+--     for i in 1..50 loop
+--             insert into client(id) values (i);
+--             if i&1 > 0 then
+--                 insert into user_segment(user_id, segment_id) values (i, 1);
+--             end if;
+--             if i&2 > 0 then
+--                 insert into user_segment(user_id, segment_id) values (i, 2);
+--             end if;
+--             if i&4 > 0 then
+--                 insert into user_segment(user_id, segment_id) values (i, 3);
+--             end if;
+--             if i&8 > 0 then
+--                 insert into user_segment(user_id, segment_id) values (i, 4);
+--             end if;
+-- end loop;
+-- end;$$

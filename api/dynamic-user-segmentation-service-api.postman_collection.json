@@ -21,12 +21,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/segments?percentage_of_users=10&ttl_for_users=2d5h",
+					"raw": "http://localhost/segments?percentage_of_users=10&ttl_for_users=2d5h",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"segments"
 					],
@@ -50,12 +49,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/segments/1/count-of-users",
+					"raw": "http://localhost/segments/1/count-of-users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"segments",
 						"1",
@@ -71,12 +69,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/segments",
+					"raw": "http://localhost/segments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"segments"
 					]
@@ -99,12 +96,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/segments",
+					"raw": "http://localhost/segments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"segments"
 					]
@@ -127,12 +123,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users",
+					"raw": "http://localhost/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users"
 					]
@@ -155,12 +150,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users",
+					"raw": "http://localhost/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users"
 					]
@@ -183,12 +177,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/1/segments?ttl=1d",
+					"raw": "http://localhost/users/1/segments?ttl=1d",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users",
 						"1",
@@ -219,12 +212,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/1/segments",
+					"raw": "http://localhost/users/1/segments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users",
 						"1",
@@ -240,12 +232,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/1/segments",
+					"raw": "http://localhost/users/1/segments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users",
 						"1",
@@ -261,18 +252,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/1/reports/2023/8",
+					"raw": "http://localhost/users/1/reports/2023/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"users",
 						"1",
 						"reports",
 						"2023",
-						"8"
+						"9"
 					]
 				}
 			},

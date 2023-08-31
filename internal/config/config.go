@@ -5,6 +5,7 @@ import "github.com/spf13/viper"
 type (
 	Config struct {
 		DB                                `mapstructure:"db"`
+		Minio                             `mapstructure:"minio"`
 		HTTP                              `mapstructure:"http"`
 		PeriodForDeletingInactiveSegments `mapstructure:"period_for_deleting_inactive_segments"`
 	}
@@ -17,6 +18,13 @@ type (
 		EnvUser     string `mapstructure:"env_user"`
 		EnvPassword string `mapstructure:"env_password"`
 		DriverName  string `mapstructure:"driver_name"`
+	}
+
+	Minio struct {
+		Host        string `mapstructure:"host"`
+		EnvUser     string `mapstructure:"env_user"`
+		EnvPassword string `mapstructure:"env_password"`
+		Ssl         bool   `mapstructure:"ssl"`
 	}
 
 	HTTP struct {

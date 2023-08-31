@@ -6,6 +6,7 @@ import (
 	"dynamic-user-segmentation-service/internal/db"
 	"dynamic-user-segmentation-service/internal/handler"
 	"dynamic-user-segmentation-service/internal/periodic"
+	"dynamic-user-segmentation-service/internal/s3"
 	"fmt"
 	"log"
 	"net"
@@ -35,7 +36,13 @@ func Run(configPath string) {
 	if err != nil {
 		log.Fatalf("Error starting periodic deletion of inactive segments task: %v", err)
 	}
-	httpHandler := handler.NewHandler(database)
+
+	s3, err := s3.Connect(conf.Minio)
+	if err != nil {
+		log.Fatalf("Could not set up s3: %v", err)
+	}
+
+	httpHandler := handler.NewHandler(database, s3)
 	server := &http.Server{
 		Handler: httpHandler,
 	}

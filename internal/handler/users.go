@@ -8,6 +8,7 @@ import (
 	"github.com/go-chi/render"
 	"github.com/gocarina/gocsv"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -174,10 +175,18 @@ func getMonthReportByUser(w http.ResponseWriter, r *http.Request) {
 		render.Render(w, r, ErrorRenderer(err))
 		return
 	}
-	w.Header().Set("Content-Type", "text/csv")
-	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment;filename=user%d-report-%d-%d.csv", userID, year, month))
-	if err = gocsv.Marshal(report.Raws, w); err != nil {
+	reportName := fmt.Sprintf("user%d-report-%d-%d.csv", userID, year, month)
+	f, err := os.CreateTemp("", reportName)
+	defer os.Remove(f.Name())
+	if err = gocsv.Marshal(report.Raws, f); err != nil {
 		render.Render(w, r, ServerErrorRenderer(err))
 		return
 	}
+
+	path, err := reportStorage.UploadReport(r.Context(), reportName, f.Name())
+	if err != nil {
+		render.Render(w, r, ServerErrorRenderer(err))
+		return
+	}
+	render.PlainText(w, r, fmt.Sprintf("http://%s/%s", r.Host, path))
 }

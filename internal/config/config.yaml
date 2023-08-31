@@ -7,8 +7,14 @@ db:
   env_password: POSTGRES_PASSWORD
   driver_name: postgres
 
+minio:
+  host: minio:9000
+  env_user: MINIO_ROOT_USER
+  env_password: MINIO_ROOT_PASSWORD
+  ssl: false
+
 http:
-  addr: :8080
+  addr: :8000
 
 period_for_deleting_inactive_segments:
   cron_expression: "0 * * * *" # every hour
